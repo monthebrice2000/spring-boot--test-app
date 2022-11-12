@@ -1,0 +1,13 @@
+{
+  "generator-jhipster": {
+    "baseName": "spring-boot-test-apis",
+    "buildDestination": "target",
+    "buildTool": "maven",
+    "entities": [],
+    "jhipsterVersion": "7.9.3",
+    "packageName": "none",
+    "prettierDefaultIndent": 2,
+    "prettierJavaIndent": 4,
+    "projectName": "spring-boot-test-apis"
+  }
+}
