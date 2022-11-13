@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="userCustom">
+      <h2 data-cy="userCustomDetailsHeading"><span jhiTranslate="springBootTestApisApp.userCustom.detail.title">User Custom</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ userCustom.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="springBootTestApisApp.userCustom.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ userCustom.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="springBootTestApisApp.userCustom.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ userCustom.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="springBootTestApisApp.userCustom.username">Username</span></dt>
+        <dd>
+          <span>{{ userCustom.username }}</span>
+        </dd>
+        <dt><span jhiTranslate="springBootTestApisApp.userCustom.email">Email</span></dt>
+        <dd>
+          <span>{{ userCustom.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="springBootTestApisApp.userCustom.password">Password</span></dt>
+        <dd>
+          <span>{{ userCustom.password }}</span>
+        </dd>
+        <dt><span jhiTranslate="springBootTestApisApp.userCustom.roles">Roles</span></dt>
+        <dd>
+          <span>{{ userCustom.roles }}</span>
+        </dd>
+        <dt><span jhiTranslate="springBootTestApisApp.userCustom.authorities">Authorities</span></dt>
+        <dd>
+          <span>{{ userCustom.authorities }}</span>
+        </dd>
+        <dt><span jhiTranslate="springBootTestApisApp.userCustom.isNotLocked">Is Not Locked</span></dt>
+        <dd>
+          <span>{{ userCustom.isNotLocked }}</span>
+        </dd>
+        <dt><span jhiTranslate="springBootTestApisApp.userCustom.isActived">Is Actived</span></dt>
+        <dd>
+          <span>{{ userCustom.isActived }}</span>
+        </dd>
+        <dt><span jhiTranslate="springBootTestApisApp.userCustom.joinDate">Join Date</span></dt>
+        <dd>
+          <span>{{ userCustom.joinDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="springBootTestApisApp.userCustom.lastLoginDate">Last Login Date</span></dt>
+        <dd>
+          <span>{{ userCustom.lastLoginDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="springBootTestApisApp.userCustom.lastLoginDateDisplay">Last Login Date Display</span></dt>
+        <dd>
+          <span>{{ userCustom.lastLoginDateDisplay | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+    </div>
+  </div>
+</div>

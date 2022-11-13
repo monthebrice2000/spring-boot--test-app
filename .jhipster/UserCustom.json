@@ -1,0 +1,79 @@
+{
+  "changelogDate": "20221112135532",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": 20,
+      "fieldValidateRulesMinlength": 0
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": 20,
+      "fieldValidateRulesMinlength": 0
+    },
+    {
+      "fieldName": "username",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": 20,
+      "fieldValidateRulesMinlength": 0
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": 20,
+      "fieldValidateRulesMinlength": 0
+    },
+    {
+      "fieldName": "password",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": 20,
+      "fieldValidateRulesMinlength": 0
+    },
+    {
+      "fieldName": "roles",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "authorities",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "isNotLocked",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "isActived",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "joinDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "lastLoginDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "lastLoginDateDisplay",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "UserCustom",
+  "pagination": "no",
+  "readOnly": true,
+  "relationships": [],
+  "service": "serviceImpl"
+}

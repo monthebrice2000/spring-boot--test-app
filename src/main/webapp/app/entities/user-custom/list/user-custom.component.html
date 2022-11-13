@@ -1,0 +1,140 @@
+<div>
+  <h2 id="page-heading" data-cy="UserCustomHeading">
+    <span jhiTranslate="springBootTestApisApp.userCustom.home.title">User Customs</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="springBootTestApisApp.userCustom.home.refreshListLabel">Refresh list</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="userCustoms?.length === 0">
+    <span jhiTranslate="springBootTestApisApp.userCustom.home.notFound">No User Customs found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="userCustoms && userCustoms.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="firstName">
+            <div class="d-flex">
+              <span jhiTranslate="springBootTestApisApp.userCustom.firstName">First Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastName">
+            <div class="d-flex">
+              <span jhiTranslate="springBootTestApisApp.userCustom.lastName">Last Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="username">
+            <div class="d-flex">
+              <span jhiTranslate="springBootTestApisApp.userCustom.username">Username</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="springBootTestApisApp.userCustom.email">Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="password">
+            <div class="d-flex">
+              <span jhiTranslate="springBootTestApisApp.userCustom.password">Password</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="roles">
+            <div class="d-flex">
+              <span jhiTranslate="springBootTestApisApp.userCustom.roles">Roles</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="authorities">
+            <div class="d-flex">
+              <span jhiTranslate="springBootTestApisApp.userCustom.authorities">Authorities</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isNotLocked">
+            <div class="d-flex">
+              <span jhiTranslate="springBootTestApisApp.userCustom.isNotLocked">Is Not Locked</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isActived">
+            <div class="d-flex">
+              <span jhiTranslate="springBootTestApisApp.userCustom.isActived">Is Actived</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="joinDate">
+            <div class="d-flex">
+              <span jhiTranslate="springBootTestApisApp.userCustom.joinDate">Join Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastLoginDate">
+            <div class="d-flex">
+              <span jhiTranslate="springBootTestApisApp.userCustom.lastLoginDate">Last Login Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastLoginDateDisplay">
+            <div class="d-flex">
+              <span jhiTranslate="springBootTestApisApp.userCustom.lastLoginDateDisplay">Last Login Date Display</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let userCustom of userCustoms; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/user-custom', userCustom.id, 'view']">{{ userCustom.id }}</a>
+          </td>
+          <td>{{ userCustom.firstName }}</td>
+          <td>{{ userCustom.lastName }}</td>
+          <td>{{ userCustom.username }}</td>
+          <td>{{ userCustom.email }}</td>
+          <td>{{ userCustom.password }}</td>
+          <td>{{ userCustom.roles }}</td>
+          <td>{{ userCustom.authorities }}</td>
+          <td>{{ userCustom.isNotLocked }}</td>
+          <td>{{ userCustom.isActived }}</td>
+          <td>{{ userCustom.joinDate | formatMediumDate }}</td>
+          <td>{{ userCustom.lastLoginDate | formatMediumDate }}</td>
+          <td>{{ userCustom.lastLoginDateDisplay | formatMediumDate }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/user-custom', userCustom.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

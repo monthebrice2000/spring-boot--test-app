@@ -9,7 +9,9 @@
     "prettier:check": "prettier --check \"{,src/**/}*.{md,json,yml,html,js,ts,tsx,css,scss,vue,java}\"",
     "prettier:format": "prettier --write \"{,src/**/}*.{md,json,yml,html,js,ts,tsx,css,scss,vue,java}\""
   },
-  "dependencies": {},
+  "dependencies": {
+    "@openapitools/openapi-generator-cli": "2.5.1"
+  },
   "devDependencies": {
     "husky": "7.0.2",
     "lint-staged": "11.0.0",
